@@ -1,0 +1,16 @@
+{
+  "name": "msg-extract",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fast-csv/format": "^4.3.5",
+    "@kenjiuno/msgreader": "^1.15.0-alpha.1",
+    "msg-parser": "^1.0.10"
+  }
+}
