@@ -15,7 +15,6 @@ fs.readdir("./data", function (err, files) {
   files.forEach(function (file, index) {//loop through files
     const msgFileBuffer = fs.readFileSync("./data/"+file);
     const testMsg = new msgReader(msgFileBuffer);
-    console.log()
     const str = testMsg.getFileData()["body"];
     const line = new Object();
     //add date to line object
