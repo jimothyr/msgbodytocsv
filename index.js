@@ -15,9 +15,15 @@ fs.readdir("./data", function (err, files) {
   files.forEach(function (file, index) {//loop through files
     const msgFileBuffer = fs.readFileSync("./data/"+file);
     const testMsg = new msgReader(msgFileBuffer);
+    console.log()
     const str = testMsg.getFileData()["body"];
     const line = new Object();
+    //add date to line object
+    line["createdDate"] = testMsg.getFileData()["creationTime"];
+    
     const result = str.split(/\r?\n/);
+
+
     result.forEach((element) => {
       if (element != "" && element.indexOf(":") >= 1) {
         out = element.replace(/\t/g, "").split(":"); //sort out data line
@@ -27,7 +33,7 @@ fs.readdir("./data", function (err, files) {
     dataArr.push(line);
 
   });
-  console.log(dataArr)
+  //console.log(dataArr)
   writeToPath(path, dataArr, options)//write output object to CSV
   .on("error", (err) => console.error(err))
   .on("finish", () => console.log("Done writing."));
